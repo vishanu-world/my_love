@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>190 Days | For Vishnu</title>
+    <title>190 Days With You, Vishnu 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Literata:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --warm-bg: #f8f5f2;
-            --card-bg: #ffffff;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --accent-pink: #fd79a8;
-            --accent-blue: #74b9ff;
-            --accent-green: #00cec9;
-            --shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
-            --border: #ecf0f1;
+            --cream: #fef9f3;
+            --warm-white: #fffbf5;
+            --soft-peach: #ffe5d9;
+            --blush: #ffcdb2;
+            --terracotta: #e29578;
+            --dusty-rose: #b5838d;
+            --deep-rose: #8d5a6a;
+            --text-dark: #3d3132;
+            --text-soft: #6b5b5e;
+            --gold: #d4a574;
+            --shadow-soft: rgba(141, 90, 106, 0.08);
+            --shadow-medium: rgba(141, 90, 106, 0.15);
         }
         
         * {
@@ -25,295 +31,448 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            background-color: var(--warm-bg);
+            font-family: 'Literata', serif;
+            background: linear-gradient(to bottom, var(--cream) 0%, var(--soft-peach) 100%);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.75;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Floating hearts background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.15;
+            animation: float-up 15s linear infinite;
+            color: var(--dusty-rose);
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Header */
+        /* Header with handwritten feel */
         header {
-            padding: 60px 0 40px;
+            padding: 80px 0 60px;
             text-align: center;
-            position: relative;
+        }
+        
+        .to-my-love {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--dusty-rose);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInDown 1s ease forwards;
+        }
+        
+        .his-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--deep-rose);
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+            opacity: 0;
+            animation: fadeInDown 1s ease 0.3s forwards;
         }
         
         .days-counter {
-            font-size: 5rem;
-            font-weight: 300;
-            color: var(--accent-pink);
-            margin-bottom: 10px;
-            font-family: 'Georgia', serif;
+            font-family: 'Crimson Pro', serif;
+            font-size: 7rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--terracotta), var(--dusty-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 30px 0;
+            opacity: 0;
+            animation: fadeInScale 1s ease 0.6s forwards;
         }
         
         .days-label {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-        
-        .header-quote {
-            font-size: 1.4rem;
-            color: var(--text-dark);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            color: var(--text-soft);
             font-style: italic;
-            padding: 20px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, rgba(253, 121, 168, 0.05), rgba(116, 185, 255, 0.05));
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
         }
         
-        /* Moments Grid */
+        .intro-letter {
+            background: var(--warm-white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow-soft);
+            margin: 60px 0;
+            border: 1px solid rgba(226, 149, 120, 0.2);
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+        }
+        
+        .intro-letter::before {
+            content: '💕';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            animation: heartPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.15); }
+        }
+        
+        .intro-letter p {
+            font-size: 1.25rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+        
+        .intro-letter p:last-child {
+            margin-bottom: 0;
+            text-align: right;
+            font-style: italic;
+            color: var(--dusty-rose);
+            font-size: 1.1rem;
+        }
+        
+        /* Special moments section */
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            text-align: center;
+            color: var(--deep-rose);
+            margin: 80px 0 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--terracotta), transparent);
+            margin: 20px auto 0;
+        }
+        
         .moments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            gap: 30px;
+            margin: 50px 0;
         }
         
         .moment-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--warm-white);
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px var(--shadow-soft);
+            border: 1px solid rgba(226, 149, 120, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .moment-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 229, 217, 0.5) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
         
         .moment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 15px 30px;
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px var(--shadow-medium);
         }
         
-        .moment-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .icon-pink {
-            background: rgba(253, 121, 168, 0.1);
-            color: var(--accent-pink);
-        }
-        
-        .icon-blue {
-            background: rgba(116, 185, 255, 0.1);
-            color: var(--accent-blue);
-        }
-        
-        .icon-green {
-            background: rgba(0, 206, 201, 0.1);
-            color: var(--accent-green);
-        }
-        
-        .moment-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-        
-        .moment-text {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-        
-        /* Photo Timeline */
-        .timeline-section {
-            margin: 60px 0;
-            padding: 40px 0;
-            background: linear-gradient(to right, rgba(253, 121, 168, 0.03), rgba(116, 185, 255, 0.03));
-            border-radius: 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 40px;
-            color: var(--text-dark);
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent-pink), var(--accent-blue));
-            border-radius: 2px;
-        }
-        
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
-        }
-        
-        .photo-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 200px;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .photo-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7));
-            display: flex;
-            align-items: flex-end;
-            padding: 15px;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .photo-card:hover .photo-overlay {
+        .moment-card:hover::before {
             opacity: 1;
         }
         
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(253, 121, 168, 0.1), rgba(116, 185, 255, 0.1));
-            color: var(--accent-pink);
+        .moment-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
         }
         
-        /* Little Things Section */
-        .little-things {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: var(--shadow);
+        .moment-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
         
-        .things-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+        .moment-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-soft);
+            position: relative;
+            z-index: 1;
         }
         
-        .thing-item {
+        .moment-text strong {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+        
+        /* Our rituals section */
+        .rituals-section {
+            background: var(--warm-white);
+            padding: 60px 50px;
+            border-radius: 30px;
+            margin: 70px 0;
+            box-shadow: 0 20px 60px var(--shadow-soft);
+            border: 1px solid rgba(226, 149, 120, 0.2);
+        }
+        
+        .ritual-item {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            background: var(--warm-bg);
+            gap: 30px;
+            padding: 35px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(255, 229, 217, 0.3) 0%, rgba(255, 205, 178, 0.2) 100%);
+            border-radius: 20px;
+            border-left: 4px solid var(--terracotta);
+            transition: transform 0.3s ease;
         }
         
-        .thing-emoji {
-            font-size: 1.5rem;
-            min-width: 40px;
-            height: 40px;
+        .ritual-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .ritual-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .ritual-emoji {
+            font-size: 3rem;
+            min-width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px var(--shadow-soft);
         }
         
-        /* Love Notes */
-        .notes-section {
-            background: linear-gradient(135deg, rgba(253, 121, 168, 0.05), rgba(0, 206, 201, 0.05));
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
+        .ritual-content h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            color: var(--deep-rose);
+            margin-bottom: 12px;
+            font-weight: 600;
         }
         
-        .note {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent-pink);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .note:before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            font-size: 3rem;
-            color: rgba(253, 121, 168, 0.1);
-            font-family: Georgia, serif;
-        }
-        
-        .note-text {
+        .ritual-content p {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: var(--text-soft);
+        }
+        
+        /* Love letter section */
+        .love-letters {
+            margin: 70px 0;
+        }
+        
+        .letter {
+            background: var(--warm-white);
+            padding: 50px;
+            margin-bottom: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow-soft);
+            border: 1px solid rgba(226, 149, 120, 0.2);
+            position: relative;
+            transform-origin: center;
+            transition: transform 0.4s ease;
+        }
+        
+        .letter:hover {
+            transform: rotate(-1deg);
+        }
+        
+        .letter::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 6rem;
+            color: rgba(226, 149, 120, 0.15);
+            font-family: 'Crimson Pro', serif;
+            line-height: 1;
+        }
+        
+        .letter-text {
+            font-size: 1.2rem;
+            line-height: 2;
             color: var(--text-dark);
-            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
         }
         
-        .note-date {
-            font-size: 0.9rem;
-            color: var(--text-light);
+        .letter-signature {
+            margin-top: 25px;
             text-align: right;
+            font-size: 1.1rem;
+            color: var(--dusty-rose);
+            font-style: italic;
         }
         
-        /* Counters */
-        .counters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .counter-item {
+        /* Hisanu playlist section */
+        .playlist-section {
+            background: linear-gradient(135deg, rgba(226, 149, 120, 0.2) 0%, rgba(181, 131, 141, 0.2) 100%);
+            padding: 60px 50px;
+            border-radius: 30px;
+            margin: 70px 0;
             text-align: center;
-            padding: 30px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
         
-        .counter-number {
+        .playlist-section::before {
+            content: '♪';
+            position: absolute;
+            font-size: 15rem;
+            color: rgba(226, 149, 120, 0.1);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+        
+        .playlist-icon {
+            font-size: 4rem;
+            color: var(--terracotta);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .playlist-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .playlist-description {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-soft);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Distance doesn't matter section */
+        .distance-section {
+            background: var(--warm-white);
+            padding: 60px 50px;
+            border-radius: 30px;
+            margin: 70px 0;
+            box-shadow: 0 20px 60px var(--shadow-soft);
+            text-align: center;
+            border: 1px solid rgba(226, 149, 120, 0.2);
+        }
+        
+        .distance-title {
+            font-family: 'Crimson Pro', serif;
             font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--accent-pink);
-            margin-bottom: 10px;
-            font-family: Georgia, serif;
+            color: var(--deep-rose);
+            margin-bottom: 30px;
+            font-weight: 600;
         }
         
-        .counter-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        .distance-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--text-soft);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .distance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, rgba(255, 229, 217, 0.5) 0%, rgba(255, 205, 178, 0.3) 100%);
+            padding: 35px 25px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--terracotta);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-soft);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -321,282 +480,293 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 60px 0 40px;
-            color: var(--text-light);
-            position: relative;
+            padding: 80px 0 60px;
+            margin-top: 80px;
+        }
+        
+        .final-message {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            line-height: 1.8;
+            color: var(--deep-rose);
+            margin-bottom: 40px;
+            font-style: italic;
         }
         
         .signature {
-            font-size: 1.2rem;
-            color: var(--accent-pink);
-            margin-top: 20px;
-            font-weight: 500;
+            font-size: 1.5rem;
+            color: var(--dusty-rose);
+            margin-top: 30px;
         }
         
-        .heart {
-            color: var(--accent-pink);
-            animation: heartbeat 1.2s infinite;
-            display: inline-block;
+        .date-stamp {
+            margin-top: 50px;
+            font-size: 1rem;
+            color: var(--text-soft);
+            font-style: italic;
         }
         
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            5% { transform: scale(1.1); }
-            10% { transform: scale(1); }
-            15% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            100% { transform: scale(1); }
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .days-counter {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .his-name {
                 font-size: 3.5rem;
             }
             
-            .header-quote {
-                font-size: 1.2rem;
+            .days-counter {
+                font-size: 5rem;
             }
             
-            .moments-grid {
-                grid-template-columns: 1fr;
+            .intro-letter, .rituals-section, .distance-section, .playlist-section {
+                padding: 35px 25px;
             }
             
-            .timeline-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .ritual-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
             
-            .moment-card, .little-things, .notes-section {
-                padding: 25px;
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .moment-card {
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Floating hearts background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="days-counter" id="daysCount">190</div>
-            <div class="days-label">Days Together</div>
-            <div class="header-quote">
-                "190 days of inside jokes, comfortable silences, and finding home in each other's presence."
-            </div>
+            <div class="to-my-love">To my love,</div>
+            <h1 class="his-name">Vishnu</h1>
+            <div class="days-counter" id="daysCounter">190</div>
+            <div class="days-label">days of falling deeper in love with you<br><small style="font-size: 0.8rem; opacity: 0.7;">since July 24, 2025</small></div>
         </header>
         
-        <!-- Moments Grid -->
+        <!-- Opening letter -->
+        <div class="intro-letter">
+            <p>
+                My dearest Vishnu,
+            </p>
+            <p>
+                Remember when we first started talking? I never imagined that someone could become my entire world through a screen. But here we are... it's been over six months since July 24th, and somehow, you've managed to make every single day feel like the best one yet.
+            </p>
+            <p>
+                I made this for you today. Not for an anniversary, not for a special occasion... just because you deserve to know how deeply you're loved. You've turned this long-distance thing into the most beautiful love story I never knew I needed.
+            </p>
+            <p>
+                This is my heart, in website form. Because sometimes words in a text aren't enough to show you how much you mean to me.
+            </p>
+            <p>
+                — Your baby 💕
+            </p>
+        </div>
+        
+        <!-- Special moments -->
+        <h2 class="section-title">The Things That Make You, You</h2>
+        
         <div class="moments-grid">
             <div class="moment-card">
-                <div class="moment-icon icon-pink">
-                    <i class="fas fa-laugh"></i>
+                <div class="moment-icon">🌅</div>
+                <h3 class="moment-title">"How was your day?"</h3>
+                <div class="moment-text">
+                    These four words. Every single day. You ask me this like you genuinely want to know about every boring detail of my life lol and the thing is, you actually do. It's never just small talk with you. You remember the tiny things I mention in passing (okay, let's be real... <strong>Your memory is hilariously selective, but when it comes to me, you're like an elephant</strong>). You celebrate my wins like they're your own and hold me through the hard days. This simple question has become the most meaningful part of my day because it reminds me that someone actually cares, that you're always thinking of me.
                 </div>
-                <h3 class="moment-title">The Laughs</h3>
-                <p class="moment-text">
-                    Those moments when we're laughing so hard we can't breathe, about absolutely nothing and everything at the same time. Your laugh is still my favorite sound.
-                </p>
             </div>
             
             <div class="moment-card">
-                <div class="moment-icon icon-blue">
-                    <i class="fas fa-mug-hot"></i>
+                <div class="moment-icon">👑</div>
+                <h3 class="moment-title">My King Who Treats Me Like a Queen</h3>
+                <div class="moment-text">
+                    The moment I land in India, everything changes. Suddenly, I don't have to think about anything (0 braincells literally lol) you've already thought of everything. Where we're going, what we're doing, how we're spending every precious moment together. <strong>You plan it all so perfectly that I just get to exist and be happy.</strong> The way you take care of me, the way you make sure I'm comfortable, the way you handle every little detail... it's like you've been planning our perfect days in your head for months (which you do I'm sure love). You make me feel so incredibly cherished, so safe, so loved. That's what a real king does...(cheesy toh nahi ho raha na, nw you like cheese... wait, what would you choose me or cheese? me duh.) you make me feel like the entire world revolves around my happiness.
                 </div>
-                <h3 class="moment-title">Morning Messages</h3>
-                <p class="moment-text">
-                    Waking up to your "good morning" texts has become my favorite routine. Even on the busiest days, it feels like we start our days together.
-                </p>
             </div>
             
             <div class="moment-card">
-                <div class="moment-icon icon-green">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <h3 class="moment-title">Shared Playlists</h3>
-                <p class="moment-text">
-                    Finding songs that remind me of you, sharing music that makes us both pause and say "listen to this part." Our unofficial soundtrack keeps growing.
-                </p>
-            </div>
-        </div>
-        
-        <!-- Photo Timeline -->
-        <div class="timeline-section">
-            <h2 class="section-title">Our 190 Days in Frames</h2>
-            <div class="timeline-grid" id="photoGrid">
-                <!-- Photos will be added here -->
-            </div>
-        </div>
-        
-        <!-- Little Things Section -->
-        <div class="little-things">
-            <h2 class="section-title">The Little Things I Love</h2>
-            <div class="things-grid">
-                <div class="thing-item">
-                    <div class="thing-emoji">😊</div>
-                    <div>
-                        <div style="font-weight: 500; margin-bottom: 5px;">How you remember small details</div>
-                        <div style="font-size: 0.9rem; color: var(--text-light);">Things I mentioned once that you bring up weeks later</div>
-                    </div>
-                </div>
-                
-                <div class="thing-item">
-                    <div class="thing-emoji">🤗</div>
-                    <div>
-                        <div style="font-weight: 500; margin-bottom: 5px;">Your sleepy morning voice</div>
-                        <div style="font-size: 0.9rem; color: var(--text-light);">When you're not fully awake yet but still say hi</div>
-                    </div>
-                </div>
-                
-                <div class="thing-item">
-                    <div class="thing-emoji">😂</div>
-                    <div>
-                        <div style="font-weight: 500; margin-bottom: 5px;">Our weird inside jokes</div>
-                        <div style="font-size: 0.9rem; color: var(--text-light);">That make absolutely no sense to anyone else</div>
-                    </div>
-                </div>
-                
-                <div class="thing-item">
-                    <div class="thing-emoji">☕</div>
-                    <div>
-                        <div style="font-weight: 500; margin-bottom: 5px;">Virtual coffee dates</div>
-                        <div style="font-size: 0.9rem; color: var(--text-light);">When we're both busy but still make time to just be</div>
-                    </div>
+                <div class="moment-icon">💝</div>
+                <h3 class="moment-title">You Love Me Better Each Day</h3>
+                <div class="moment-text">
+                    I used to think love was this static thing.. you fall in it and that's that *hell nahhh*. But with you? It's alive. It grows. Every day, I think "this is it, this is as happy as I can be," and then you go and prove me wrong the next day. The way you show up for me, <strong>the effort you put into making me feel special, the little surprises, the random "thinking of you" messages awww </strong>it just keeps getting deeper, richer, more real. You've shown me that falling in love isn't a one-time thing. With you, I fall a little more every single morning when I see your good morning text, every night when your face is the last thing I see. You make loving you the easiest thing I've ever done.
                 </div>
             </div>
         </div>
         
-        <!-- Love Notes -->
-        <div class="notes-section">
-            <h2 class="section-title">Love Notes</h2>
+        <!-- Our daily rituals -->
+        <div class="rituals-section">
+            <h2 class="section-title">Our Sacred Rituals</h2>
             
-            <div class="note">
-                <p class="note-text">
-                    Today I was walking and saw something funny, and my first thought was "I need to tell Vishnu about this." That's how I know you've become part of my daily thoughts.
-                </p>
-                <div class="note-date">— A random Tuesday</div>
+            <div class="ritual-item">
+                <div class="ritual-emoji">🌙</div>
+                <div class="ritual-content">
+                    <h3>Falling Asleep Together, Thousands of Miles Apart</h3>
+                    <p>
+                        This is my favorite part of every day. We get on that video call, and suddenly, the distance doesn't exist anymore. I see your sleepy face, hear your breathing getting slower, watch you drift off... and I feel so close to you. <strong>You're the last person I see before I close my eyes, and somehow, that makes everything okay.</strong> Even when I wake up in the middle of the night and see you sleeping on my screen, I smile. Because we're doing this crazy thing... sleeping together while being apart... and making it work. These quiet moments where we're just existing in each other's presence, even through a screen? They're my peace. My home. My goodnight kiss even when I can't physically kiss you.
+                    </p>
+                </div>
             </div>
             
-            <div class="note">
-                <p class="note-text">
-                    There's something about the way you get excited about things you're passionate about that makes me smile. Your enthusiasm is contagious.
-                </p>
-                <div class="note-date">— After one of our conversations</div>
+            <div class="ritual-item">
+                <div class="ritual-emoji">☀️</div>
+                <div class="ritual-content">
+                    <h3>Our Sacred Good Mornings & Good Nights</h3>
+                    <p>
+                        You know what's crazy? I've become so used to starting and ending my day with you that it feels wrong when I don't. Your "goodmorning baby" text sets the tone for my entire day like no matter what happens, I know I have you. And your "goodnight" at the end? That's when everything settles and I feel complete. <strong>These aren't just messages anymore; they're promises.</strong> Promises that you're thinking of me when you wake up, that I'm the last thing on your mind before you sleep. In a world where everything feels uncertain, this routine—us—is the most certain, beautiful, peaceful thing I have.
+                    </p>
+                </div>
             </div>
             
-            <div class="note">
-                <p class="note-text">
-                    I love that we can be quiet together. That we don't always need to fill the silence. That just existing in the same space (even virtually) feels right.
-                </p>
-                <div class="note-date">— A peaceful moment</div>
+            <div class="ritual-item">
+                <div class="ritual-emoji">💬</div>
+                <div class="ritual-content">
+                    <h3>The Way You Actually Listen</h3>
+                    <p>
+                        Because when you ask about my day baby, you don't just ask... you actually want to hear about the meeting I had, the lunch I ate, the random thought I had while walking. You remember details I've forgotten I told you. You bring up things weeks later like "hey, didn't you have that thing today?" And it hits me every time: <strong>you're genuinely invested in my life.</strong> Not just the highlight reel, but the boring Tuesday stuff too. You make me feel heard in a way I've never experienced before. This daily ritual of sharing our days has become the thread that keeps us woven together, no matter the distance.
+                    </p>
+                </div>
             </div>
         </div>
         
-        <!-- Counters -->
-        <div class="counters">
-            <div class="counter-item">
-                <div class="counter-number">4,560</div>
-                <div class="counter-label">Hours</div>
+        <!-- Hisanu playlist -->
+        <div class="playlist-section">
+            <div class="playlist-icon">🎵</div>
+            <h2 class="playlist-name">Hisanu</h2>
+            <div class="playlist-description">
+                Our playlist. Our name. Our soundtrack. Every song in here tells a story... the ones that remind me of your smile, the ones we've listened to together on call, the ones I play when I miss you so much it hurts. Music became our thing, didn't it? <strong>When words fail, we send each other songs.</strong> And this playlist it's growing yeyyy just like we are. Every addition is a memory, a feeling, a moment frozen in melody. One day, we'll listen to these songs together in person, and I'll finally be able to dance with you instead of just imagining it.
+            </div>
+        </div>
+        
+        <!-- Love letters -->
+        <div class="love-letters">
+            <h2 class="section-title">Things I Need You to Know</h2>
+            
+            <div class="letter">
+                <div class="letter-text">
+                    You know what blows my mind? How many memories we've already made. Over six months of inside jokes that make zero sense to anyone else. Late-night conversations where we solve the world's problems and our own. Comfortable silences where we're just existing together through a screen. <strong>I have a mental photo album of moments with you that I replay constantly.</strong> The time you said that thing that made me laugh for an hour. The night we both fell asleep and woke up still on call. Every single day adds another page to this story, and I'm greedy for more tbh.
+                </div>
+                <div class="letter-signature">— Collecting forever with you</div>
             </div>
             
-            <div class="counter-item">
-                <div class="counter-number">∞</div>
-                <div class="counter-label">Smiles</div>
+            <div class="letter">
+                <div class="letter-text">
+                    People always ask me "how do you do long distance?" And honestly? With you, it doesn't even feel like we're "doing" anything... it just is. You've made me forget what it's like to feel alone. <strong>The distance is just geography tbh it has nothing to do with how close we are.</strong> Every video call, every voice note, every "just thinking of you" text... you show up so completely that sometimes I forget you're not physically here. You've proven to me that real presence isn't about proximity it's about being so deeply invested in someone that space becomes irrelevant. That's what you do. You make the impossible feel effortless. We do fight but at the end we understand each other more, that's what matters. Baby, I really do love you from my core. 
+                </div>
+                <div class="letter-signature">— Distance is just a test we're acing</div>
             </div>
             
-            <div class="counter-item">
-                <div class="counter-number">Countless</div>
-                <div class="counter-label">Memories</div>
+            <div class="letter">
+                <div class="letter-text">
+                    You've become my person. Not just for the big stuff though yesss, you're incredible at that but for everything. When I see something funny, my first instinct is to screenshot it for you. When I'm stressed, I hear your voice in my head calming me down. When I'm happy, you're the one I want to share it with first. <strong>You're in every part of my day now, woven into my thoughts so naturally that I can't remember what life was like before you.</strong> And honestly? I don't want to remember. Because this you being my constant, my safe place, my home this is how it's supposed to be.
+                </div>
+                <div class="letter-signature">— You're my always, my everything</div>
             </div>
             
-            <div class="counter-item">
-                <div class="counter-number">1</div>
-                <div class="counter-label">Incredible You</div>
+            <div class="letter">
+                <div class="letter-text">
+                    The way you plan our time together when I'm back in India? It's not just about logistics... it's love in its purest form. You think about what I'd enjoy, where I'd want to go, what would make me happiest. <strong>You take care of every single detail so I can just relax and be present with you.</strong> I never have to worry about anything because you've already thought it through. And that feeling—of being so completely taken care of, so treasured, so prioritized—it's something I've never experienced before. You don't just say you love me; you show it in every perfectly planned moment, every thoughtful gesture, every "don't worry, I've got this." That's how I know you're my forever. Ig I already said all thsi before but listen again, thank you for really seeing me.
+                </div>
+                <div class="letter-signature">— Forever grateful for my king 👑</div>
+            </div>
+        </div>
+        
+        <!-- Distance doesn't matter -->
+        <div class="distance-section">
+            <h2 class="distance-title">They Said Long Distance Would Be Hard</h2>
+            <div class="distance-text">
+                And sure, it is. I'd be lying if I said I don't miss your hugs, or wish I could hold your hand right now, or dream about the day we're finally in the same timezone. <strong>But you know what? You've made this the most beautiful love story I could have never planned.</strong> Every video call is a date. Every voice note is a love letter. Every "good morning" is a promise. We're not just surviving the distance... we're building something real, something lasting, something that will be even more incredible when the miles finally disappear. Because if we can fall this deeply in love through screens, imagine what we'll be like in person *blush*.
+            </div>
+            
+            <div class="distance-stats">
+                <div class="stat-item">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Months of Us</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Video Calls</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Every Day</div>
+                    <div class="stat-label">Good Mornings</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Every Night</div>
+                    <div class="stat-label">Good Nights</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Many</div>
+                    <div class="stat-label">I Love Yous</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Perfect You</div>
+                </div>
             </div>
         </div>
         
         <!-- Footer -->
         <footer>
-            <p>Every single one of these 190 days has been better because you were in it.</p>
-            <p class="signature">
-                With all my love <span class="heart">♥</span><br>
-                Always, Yours
-            </p>
-            <div style="margin-top: 30px; font-size: 0.9rem; color: var(--text-light);">
-                Today's date: <span id="currentDate"></span>
+            <div class="final-message">
+                Six months down, forever to go.<br>
+                You're not just my favorite person, Vishnu.<br>
+                You're my best friend, my safe place, my home.<br>
+                <strong>I love you more than I knew was possible.</strong>
             </div>
+            <div class="signature">
+                All my love, across every mile,<br>
+                Your Baby 💕
+            </div>
+            <div class="date-stamp" id="currentDate"></div>
         </footer>
     </div>
 
     <script>
-        // Create photo grid
-        function createPhotoGrid() {
-            const photoGrid = document.getElementById('photoGrid');
-            const photoCount = 8;
-            const photoTitles = [
-                "Our first virtual date",
-                "That hilarious moment we both...",
-                "When you told me that story",
-                "Our shared sunset photo",
-                "That song you sent me",
-                "Morning coffee together",
-                "Late night conversation",
-                "Just thinking of you"
-            ];
-            
-            for (let i = 0; i < photoCount; i++) {
-                const photoCard = document.createElement('div');
-                photoCard.className = 'photo-card';
-                
-                const placeholder = document.createElement('div');
-                placeholder.className = 'photo-placeholder';
-                
-                const overlay = document.createElement('div');
-                overlay.className = 'photo-overlay';
-                overlay.innerHTML = `<div>${photoTitles[i]}</div>`;
-                
-                placeholder.innerHTML = `
-                    <i class="fas fa-camera" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <span style="font-size: 0.9rem;">Memory ${i + 1}</span>
-                `;
-                
-                // Click to show upload instructions
-                placeholder.onclick = () => showPhotoUpload(i + 1);
-                
-                photoCard.appendChild(placeholder);
-                photoCard.appendChild(overlay);
-                photoGrid.appendChild(photoCard);
-            }
-        }
-        
-        // Photo upload instructions
-        function showPhotoUpload(photoNum) {
-            const messages = [
-                "Add our first photo together here",
-                "That funny screenshot we both loved",
-                "A selfie from one of our video calls",
-                "Something that reminds you of us",
-                "A photo from your favorite memory",
-                "That place you want to visit together",
-                "Something that made you smile today",
-                "Just a picture of you smiling"
-            ];
-            
-            alert(`Photo ${photoNum}\n\n${messages[photoNum - 1]}\n\nTo add photos:\n1. Save this file\n2. Add your photo to same folder\n3. Replace placeholder with:\n\n<div class="photo-card">\n  <img src="photo${photoNum}.jpg" style="width:100%;height:100%;object-fit:cover;">\n</div>`);
-        }
-        
-        // Update current date
-        function updateDate() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            };
-            document.getElementById('currentDate').textContent = 
-                now.toLocaleDateString('en-US', options);
-        }
-        
-        // Animate day counter
+        // Animate day counter on load
         function animateDayCounter() {
-            const counter = document.getElementById('daysCount');
+            const counter = document.getElementById('daysCounter');
             let current = 0;
             const target = 190;
             const duration = 2000;
@@ -613,88 +783,105 @@
             }, 16);
         }
         
-        // Add random love notes every few seconds
-        function addFloatingNote() {
-            const notes = [
-                "Thinking of you ♥",
-                "190 days and counting",
-                "You make me the happiest",
-                "My favorite person",
-                "Grateful for you",
-                "Can't wait to see you *cry*"
-            ];
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartShapes = ['💕', '💗', '💖', '💝', '❤️', '🤍'];
             
-            const note = document.createElement('div');
-            note.textContent = notes[Math.floor(Math.random() * notes.length)];
-            note.style.position = 'fixed';
-            note.style.right = '20px';
-            note.style.bottom = Math.random() * 200 + 50 + 'px';
-            note.style.background = 'linear-gradient(135deg, var(--accent-pink), var(--accent-blue))';
-            note.style.color = 'white';
-            note.style.padding = '10px 20px';
-            note.style.borderRadius = '20px';
-            note.style.fontSize = '0.9rem';
-            note.style.zIndex = '1000';
-            note.style.opacity = '0';
-            note.style.transform = 'translateX(100px)';
-            note.style.transition = 'all 0.5s ease';
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartShapes[Math.floor(Math.random() * heartShapes.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (15 + Math.random() * 10) + 's';
+                heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Update current date
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            document.getElementById('currentDate').textContent = 
+                'Created with love on ' + now.toLocaleDateString('en-US', options);
+        }
+        
+        // Add scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.moment-card, .ritual-item, .letter, .stat-item');
             
-            document.body.appendChild(note);
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
             
-            // Animate in
-            setTimeout(() => {
-                note.style.opacity = '1';
-                note.style.transform = 'translateX(0)';
-            }, 10);
-            
-            // Animate out and remove
-            setTimeout(() => {
-                note.style.opacity = '0';
-                note.style.transform = 'translateX(100px)';
-                setTimeout(() => note.remove(), 500);
-            }, 3000);
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
         }
         
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
             animateDayCounter();
-            createPhotoGrid();
+            createFloatingHearts();
             updateDate();
             
-            // Add floating notes occasionally
-            setInterval(addFloatingNote, 10000);
-            
-            // Add hover effect to moment cards
-            const cards = document.querySelectorAll('.moment-card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    const icon = this.querySelector('.moment-icon');
-                    icon.style.transform = 'scale(1.1)';
-                    icon.style.transition = 'transform 0.3s ease';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    const icon = this.querySelector('.moment-icon');
-                    icon.style.transform = 'scale(1)';
-                });
-            });
-            
-            // Add date to header quote
-            const headerQuote = document.querySelector('.header-quote');
-            const today = new Date();
-            const startDate = new Date(today);
-            startDate.setDate(startDate.getDate() - 190);
-            
-            const formatDate = (date) => {
-                return date.toLocaleDateString('en-US', { 
-                    month: 'long', 
-                    day: 'numeric', 
-                    year: 'numeric' 
-                });
-            };
-            
-            headerQuote.innerHTML = `"190 days since July 24, 2025.<br>Every one of them brighter because of you."`;
+            // Delay scroll animations slightly for page load
+            setTimeout(handleScrollAnimations, 500);
         });
+        
+        // Add sparkle effect on hover for cards
+        document.querySelectorAll('.moment-card, .ritual-item').forEach(card => {
+            card.addEventListener('mouseenter', function(e) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'absolute';
+                sparkle.style.left = e.clientX - this.getBoundingClientRect().left + 'px';
+                sparkle.style.top = e.clientY - this.getBoundingClientRect().top + 'px';
+                sparkle.style.fontSize = '1.5rem';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                this.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            });
+        });
+        
+        // Add sparkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkle {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(0);
+                }
+                50% {
+                    opacity: 1;
+                    transform: translateY(-20px) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-40px) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
